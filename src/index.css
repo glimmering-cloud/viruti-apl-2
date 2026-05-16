@@ -2,18 +2,50 @@
 
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-serif: "Playfair Display", Georgia, serif;
+  --font-serif: "DM Serif Display", serif;
   --font-mono: "JetBrains Mono", monospace;
 
+  --color-m3-primary: #006492;
+  --color-m3-on-primary: #ffffff;
+  --color-m3-primary-container: #c9e6ff;
+  --color-m3-on-primary-container: #001e2f;
+  
+  --color-m3-secondary: #50606e;
+  --color-m3-on-secondary: #ffffff;
+  --color-m3-secondary-container: #d3e5f5;
+  --color-m3-on-secondary-container: #0c1d29;
+
+  --color-m3-surface: #f8f9ff;
+  --color-m3-on-surface: #191c1e;
+  --color-m3-surface-variant: #dee3eb;
+  --color-m3-on-surface-variant: #42474e;
+
   --color-accent: #00f3ff;
-  --color-accent-dark: #0088cc;
   --color-neon-pink: #ff007f;
 }
 
 @layer base {
+  :root {
+    --bg: #f8f9ff;
+    --fg: #191c1e;
+    --card: #ffffff;
+    --border: #dee3eb;
+  }
+
+  .dark {
+    --bg: #191c1e;
+    --fg: #e2e2e6;
+    --card: #222629;
+    --border: #42474e;
+  }
+
   body {
-    @apply bg-black text-white antialiased selection:bg-accent/30;
+    @apply bg-[var(--bg)] text-[var(--fg)] transition-colors duration-300 antialiased;
     font-feature-settings: "ss01", "ss02", "cv01", "cv02";
+  }
+
+  .m3-card {
+    @apply bg-[var(--card)] border border-[var(--border)] rounded-[28px] overflow-hidden;
   }
 
   .glass {
@@ -31,4 +63,4 @@
   }
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=DM+Serif+Display:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap');
